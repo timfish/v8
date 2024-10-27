@@ -429,6 +429,8 @@ class V8_EXPORT_PRIVATE Scanner {
   Handle<String> SourceUrl(IsolateT* isolate) const;
   template <typename IsolateT>
   Handle<String> SourceMappingUrl(IsolateT* isolate) const;
+  template <typename IsolateT>
+  Handle<String> SourceDebugId(IsolateT* isolate) const;
 
   bool SawSourceMappingUrlMagicCommentAtSign() const {
     return saw_source_mapping_url_magic_comment_at_sign_;
@@ -762,6 +764,7 @@ class V8_EXPORT_PRIVATE Scanner {
   // Values parsed from magic comments.
   LiteralBuffer source_url_;
   LiteralBuffer source_mapping_url_;
+  LiteralBuffer source_debug_id_;
   bool saw_source_mapping_url_magic_comment_at_sign_ = false;
   bool saw_magic_comment_compile_hints_all_ = false;
 

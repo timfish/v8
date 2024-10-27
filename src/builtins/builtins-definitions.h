@@ -519,6 +519,7 @@ namespace internal {
   CPP(CallSitePrototypeGetPromiseIndex, JSParameterCount(0))                   \
   CPP(CallSitePrototypeGetScriptHash, JSParameterCount(0))                     \
   CPP(CallSitePrototypeGetScriptNameOrSourceURL, JSParameterCount(0))          \
+  CPP(CallSitePrototypeGetScriptDebugId, JSParameterCount(0))                  \
   CPP(CallSitePrototypeGetThis, JSParameterCount(0))                           \
   CPP(CallSitePrototypeGetTypeName, JSParameterCount(0))                       \
   CPP(CallSitePrototypeIsAsync, JSParameterCount(0))                           \

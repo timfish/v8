@@ -204,6 +204,13 @@ Tagged<Object> CallSiteInfo::GetScriptSourceMappingURL() const {
   return ReadOnlyRoots(GetIsolate()).null_value();
 }
 
+Tagged<Object> CallSiteInfo::GetScriptDebugId() const {
+  if (auto script = GetScript()) {
+    return script.value()->source_debug_id();
+  }
+  return ReadOnlyRoots(GetIsolate()).null_value();
+}
+
 // static
 Handle<String> CallSiteInfo::GetScriptHash(DirectHandle<CallSiteInfo> info) {
   Handle<Script> script;

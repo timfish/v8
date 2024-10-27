@@ -73,6 +73,7 @@ class CallSiteInfo : public TorqueGeneratedCallSiteInfo<CallSiteInfo, Struct> {
   Tagged<Object> GetScriptNameOrSourceURL() const;
   Tagged<Object> GetScriptSource() const;
   Tagged<Object> GetScriptSourceMappingURL() const;
+  Tagged<Object> GetScriptDebugId() const;
 
   static Handle<PrimitiveHeapObject> GetEvalOrigin(
       DirectHandle<CallSiteInfo> info);

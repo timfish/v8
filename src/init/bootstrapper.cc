@@ -5394,6 +5394,7 @@ void Genesis::InitializeCallSiteBuiltins() {
       {"getScriptNameOrSourceURL",
        Builtin::kCallSitePrototypeGetScriptNameOrSourceURL},
       {"getScriptHash", Builtin::kCallSitePrototypeGetScriptHash},
+      {"getScriptDebugId", Builtin::kCallSitePrototypeGetScriptDebugId},
       {"getThis", Builtin::kCallSitePrototypeGetThis},
       {"getTypeName", Builtin::kCallSitePrototypeGetTypeName},
       {"isAsync", Builtin::kCallSitePrototypeIsAsync},

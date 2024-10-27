@@ -275,6 +275,8 @@ void Scanner::TryToParseMagicComment(base::uc32 hash_or_at_sign) {
     saw_source_mapping_url_magic_comment_at_sign_ = hash_or_at_sign == '@';
   } else if (name_literal == base::StaticOneByteVector("eagerCompilation")) {
     value = &compile_hints_value;
+  } else if (name_literal == base::StaticOneByteVector("debugId")) {
+    value = &source_debug_id_;
   } else {
     return;
   }
@@ -650,6 +652,18 @@ Handle<String> Scanner::SourceMappingUrl(IsolateT* isolate) const {
 
 template Handle<String> Scanner::SourceMappingUrl(Isolate* isolate) const;
 template Handle<String> Scanner::SourceMappingUrl(LocalIsolate* isolate) const;
+
+template <typename IsolateT>
+Handle<String> Scanner::SourceDebugId(IsolateT* isolate) const {
+  Handle<String> tmp;
+  if (source_debug_id_.length() > 0) {
+    tmp = source_debug_id_.Internalize(isolate);
+  }
+  return tmp;
+}
+
+template Handle<String> Scanner::SourceDebugId(Isolate* isolate) const;
+template Handle<String> Scanner::SourceDebugId(LocalIsolate* isolate) const;
 
 bool Scanner::ScanDigitsWithNumericSeparators(bool (*predicate)(base::uc32 ch),
                                               bool is_check_first_digit) {

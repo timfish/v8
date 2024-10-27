@@ -3399,6 +3399,11 @@ void Parser::HandleSourceURLComments(IsolateT* isolate,
       IsUndefined(script->source_mapping_url(isolate), isolate)) {
     script->set_source_mapping_url(*source_mapping_url);
   }
+
+  Handle<String> source_debug_id = scanner_.SourceDebugId(isolate);
+  if (!source_debug_id.is_null()) {
+    script->set_source_debug_id(*source_debug_id);
+  }
 }
 
 template void Parser::HandleSourceURLComments(Isolate* isolate,

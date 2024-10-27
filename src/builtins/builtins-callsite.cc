@@ -102,6 +102,12 @@ BUILTIN(CallSitePrototypeGetFunctionName) {
   return *CallSiteInfo::GetFunctionName(frame);
 }
 
+BUILTIN(CallSitePrototypeGetScriptDebugId) {
+  HandleScope scope(isolate);
+  CHECK_CALLSITE(frame, "getScriptDebugId");
+  return frame->GetScriptDebugId();
+}
+
 BUILTIN(CallSitePrototypeGetLineNumber) {
   HandleScope scope(isolate);
   CHECK_CALLSITE(frame, "getLineNumber");
